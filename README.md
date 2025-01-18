@@ -1,5 +1,5 @@
 # C5S4-UI-Lib
-
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/C5m7b4/c5s4-ui-lib/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/C5m7b4/c5s4-ui-lib/tree/master)
 
 
 This is tiny Typescript package with the following components:
