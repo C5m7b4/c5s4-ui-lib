@@ -1,9 +1,5 @@
 # C5 tiny package
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/C5m7b4/c5-tiny-package/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/C5m7b4/c5-tiny-package/tree/master)
-[![codecov](https://codecov.io/gh/C5m7b4/c5-tiny-package/graph/badge.svg?token=2VW2NXHJ8V)](https://codecov.io/gh/C5m7b4/c5-tiny-package)
-![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/C5m7b4/c5-tiny-package)
-![GitHub License](https://img.shields.io/github/license/C5m7b4/c5-tiny-package)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/C5m7b4/c5-tiny-package)
+
 
 
 This is tiny Typescript package with the following components:
