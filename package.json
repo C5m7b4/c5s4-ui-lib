@@ -1,0 +1,64 @@
+{
+  "name": "c5s4-ui-lib",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest --pool=threads",
+    "test:ui": "vitest --pool=threads --ui --api 1337",
+    "updateversion": "npm version patch"
+  },
+  "keywords": [],
+  "author": "C5S4",
+  "license": "MIT",
+  "description": "small typescript library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/C5m7b4/c5-tiny-package"
+  },
+  "bugs": "https://github.com/C5m7b4/c5-tiny-package",
+  "homepage": "https://github.com/C5m7b4/c5-tiny-package",
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.10.6",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "@types/testing-library__jest-dom": "^5.14.9",
+    "@types/testing-library__user-event": "^4.1.1",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "@vitest/coverage-istanbul": "^2.1.8",
+    "@vitest/ui": "^2.1.8",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-prettier": "^5.2.2",
+    "eslint-plugin-promise": "^6.6.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-typescript": "^0.14.0",
+    "globals": "^15.14.0",
+    "happy-dom": "^16.5.3",
+    "postcss": "^8.5.1",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^3.4.17",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0",
+    "vitest": "^2.1.8"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

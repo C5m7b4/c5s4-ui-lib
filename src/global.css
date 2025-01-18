@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.toast-error {
+  @apply bg-red-500 text-white;
+}
+
+.toast-success {
+  @apply bg-green-500 text-white;
+}
+
+.toast-info {
+  @apply bg-blue-400 text-white;
+}
+
+.toast-warning {
+  @apply bg-orange-500 text-white;
+}
