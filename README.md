@@ -1,4 +1,4 @@
-# C5 tiny package
+# C5S4-UI-Lib
 
 
 
@@ -10,7 +10,7 @@ This is tiny Typescript package with the following components:
 
 ## Installation
 ```js
-    npm install c5-tiny-package
+    npm install c5s4-ui-lib
 ```
 
 
