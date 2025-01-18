@@ -8,6 +8,8 @@ This is tiny Typescript package with the following components:
 
 [Table](#table)
 
+[Toasts](#toasts)
+
 ## Installation
 ```js
     npm install c5s4-ui-lib
@@ -57,3 +59,7 @@ This is tiny Typescript package with the following components:
 ```js
  <Table data={tableData} headers={tableHeaders} />
 ```
+
+
+## Toasts
+This is a small toast library that is very useful.
