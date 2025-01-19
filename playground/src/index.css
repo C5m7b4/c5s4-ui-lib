@@ -1,53 +1,57 @@
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --color-bkg: 255 255 255;
+    --color-content: 30 41 59l --color-accent1: 245 208 254;
+    --color-accent2: 153 246 227;
+    --color-hover: 206 220 227;
+    --color-bkg2: 245 245 245;
   }
-  a:hover {
-    color: #747bff;
+  :root[data-theme='light'] {
+    --color-bkg: 255 255 255;
+    --color-content: 30 41 59;
+    --color-accent1: 209 116 232;
+    --color-accent2: 153 246 227;
+    --color-hover: 206 220 227;
+    --color-bkg2: 245 245 245;
   }
-  button {
-    background-color: #f9f9f9;
+  :root[data-theme='dark'] {
+    --color-bkg: 81 80 86;
+    --color-content: 192 194 194;
+    --color-accent1: 212 58 251;
+    --color-accent2: 20 226 185;
+    --color-hover: 182 188 191;
+    --color-bkg2: 60 60 60;
+  }
+  :root[data-theme='cool'] {
+    --color-bkg: 255 255 255;
+    --color-content: 30 41 59;
+    --color-accent1: 209 116 232;
+    --color-accent2: 153 246 227;
+    --color-hover: 206 220 227;
+    --color-bkg2: 245 245 245;
+  }
+  :root[data-theme='purple'] {
+    --color-bkg: 255 255 255;
+    --color-content: 30 41 59;
+    --color-accent1: 209 116 232;
+    --color-accent2: 153 246 227;
+    --color-hover: 206 220 227;
+    --color-bkg2: 245 245 245;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    width: 2em;
   }
 }

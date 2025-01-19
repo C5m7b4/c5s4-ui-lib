@@ -1,18 +1,24 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
-  safelist: ['hover:bg-slate-200', 'hover:bg-slate-300', 'hover:bg-blue-200'],
+  safelist: [
+    'hover:bg-slate-200',
+    'hover:bg-slate-300',
+    'hover:bg-blue-200',
+    'fill-white',
+  ],
   theme: {
     extend: {
       keyframes: {
         appear: {
           '0%': {
             opacity: 0,
-            display: 'hidden',
+            display: 'none',
           },
           '100%': {
             opacity: 1,
             display: 'block',
+            zIndex: 25,
           },
         },
         dissappear: {
@@ -22,7 +28,7 @@ module.exports = {
           },
           '100%': {
             opacity: '0',
-            display: 'hidden',
+            display: 'none',
           },
         },
         fadeInModal: {
@@ -49,7 +55,10 @@ module.exports = {
         slideOutToRight: {
           '0%': { transform: 'translateX(0)', opacity: 1 },
           '10%': { transform: 'translateX(-10%)' },
-          '100%': { transform: 'translateX(100%)', opacity: 0 },
+          '100%': {
+            transform: 'translateX(100%)',
+            opacity: 0,
+          },
         },
         slideInFromLeft: {
           '0%': { transform: 'translateX(-100%)', opacity: 0 },

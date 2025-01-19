@@ -2,17 +2,26 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
-import { ToastProvider } from '../../src';
+import { BrowserRouter, Routes, Route } from 'react-router';
+
+import ToastDemo from './pages/ToastDemo/ToastDemo.tsx';
+import FormItemsDemo from './pages/FormItemsDemo.tsx';
+import TableDemo from './pages/TableDemo.tsx';
+import JsonTreeViewDemo from './pages/JsonTreeViewDemo/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ToastProvider
-      autoClose={true}
-      duration={5000}
-      position="top-right"
-      recentOnTop={false}
-    >
-      <App />
-    </ToastProvider>
+    {/* <TooltipProvider> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="toasts" element={<ToastDemo />} />
+          <Route path="forms" element={<FormItemsDemo />} />
+          <Route path="table" element={<TableDemo />} />
+          <Route path="json" element={<JsonTreeViewDemo />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    {/* </TooltipProvider> */}
   </StrictMode>,
 );
