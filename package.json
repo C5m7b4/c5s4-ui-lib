@@ -18,10 +18,10 @@
   "description": "small typescript library",
   "repository": {
     "type": "git",
-    "url": "https://github.com/C5m7b4/c5-tiny-package"
+    "url": "https://github.com/C5m7b4/c5s4-ui-lib"
   },
-  "bugs": "https://github.com/C5m7b4/c5-tiny-package",
-  "homepage": "https://github.com/C5m7b4/c5-tiny-package",
+  "bugs": "https://github.com/C5m7b4/c5s4-ui-lib",
+  "homepage": "https://github.com/C5m7b4/c5s4-ui-lib",
   "devDependencies": {
     "@eslint/js": "^9.18.0",
     "@testing-library/dom": "^10.4.0",
