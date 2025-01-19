@@ -26,7 +26,7 @@ const ToastContainer = ({
   return (
     <div query-id="toast-container" className={`fixed ${positionStyle} z-50`}>
       <>
-        {toasts.reverse().map((toast) => (
+        {toasts.map((toast) => (
           <Toast
             key={toast.id}
             toast={toast}

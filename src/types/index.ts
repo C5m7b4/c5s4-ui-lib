@@ -9,6 +9,7 @@ export interface IconProps {
   strokeWidth?: number;
   className?: string;
   onClick?: (e: React.MouseEvent<SVGGElement>) => void;
+  style?: React.CSSProperties;
 }
 
 export type ITableHeaderAlign = 'left' | 'center' | 'right';

@@ -22,6 +22,7 @@ export default [
           varsIgnorePattern: '^_',
         },
       ],
+      '@typescript-eslint/no-unsafe-function-type': 0,
     },
   },
 ];

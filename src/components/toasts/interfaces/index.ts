@@ -1,13 +1,13 @@
 import { ToastAnimationType, ToastPosition, ToastType } from '../types';
 import { ReactNode } from 'react';
 
-export interface ToastProviderProps {
+export type ToastProviderProps = {
   children?: ReactNode;
   autoClose?: boolean;
   duration?: number;
   position?: ToastPosition;
   recentOnTop?: boolean;
-}
+};
 
 export interface ToastOptions {
   useIcon?: boolean;

@@ -1,5 +1,5 @@
 import { describe, it, vi, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Select from '.';
 import { getByQueryId } from '../../mocks/query';
@@ -9,7 +9,13 @@ const Wrapper = () => {
   const fn = vi.fn();
   return (
     <div query-id="outside">
-      <Select data={data} displayKey="name" label="select user" onSelect={fn} />
+      <Select
+        data={data}
+        displayKey="name"
+        valueKey="id"
+        label="select user"
+        onSelect={fn}
+      />
     </div>
   );
 };
@@ -21,6 +27,7 @@ describe('Select Component', () => {
       <Select
         data={data}
         displayKey="name"
+        valueKey="id"
         label="select user"
         onSelect={fn}
       />,
@@ -35,6 +42,7 @@ describe('Select Component', () => {
       <Select
         data={data}
         displayKey="name"
+        valueKey="id"
         label="select user"
         onSelect={fn}
       />,
@@ -68,6 +76,7 @@ describe('Select Component', () => {
       <Select
         data={data}
         displayKey="name"
+        valueKey="id"
         label="select user"
         onSelect={fn}
       />,
@@ -88,6 +97,7 @@ describe('Select Component', () => {
       <Select
         data={data}
         displayKey="name"
+        valueKey="id"
         label="select user"
         onSelect={fn}
       />,
@@ -108,6 +118,7 @@ describe('Select Component', () => {
       <Select
         data={data}
         displayKey="name"
+        valueKey="id"
         label="select user"
         onSelect={fn}
         labelPosition="left"
@@ -148,6 +159,7 @@ describe('Select Component', () => {
       <Select
         data={data}
         displayKey="name"
+        valueKey="id"
         label="select user"
         labelPosition="left"
       />,
@@ -158,5 +170,22 @@ describe('Select Component', () => {
 
     const option = getByQueryId('option-1');
     await userEvent.click(option);
+  });
+  it('should handle a default value', () => {
+    const fn = vi.fn();
+    render(
+      <Select
+        data={data}
+        displayKey="name"
+        valueKey="id"
+        value="1"
+        label="select user"
+        onSelect={fn}
+        labelPosition="left"
+      />,
+    );
+
+    const input = getByQueryId('input') as HTMLInputElement;
+    expect(input.value).toEqual('User');
   });
 });

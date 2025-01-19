@@ -1,69 +1,40 @@
-import { Button } from 'c5-tiny-package';
-import { Select, Table } from '../../src';
 import './App.css';
 import '../../dist/index.css';
-import { data, iData } from './data';
-import { tableData, tableHeaders } from './data/tableData';
-import { useToast } from '../../src';
+import FloatingControls from './components/FloatingControls';
+import logo from './assets/c5s4logo.svg';
+import Sidebar from './components/Sidebar';
+import { Outlet } from 'react-router';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const toast = useToast();
+  const [theme, setTheme] = useState('light');
 
-  const handleError = () => {
-    toast.error('This  is an error message');
-  };
-  const handleSuccess = () => {
-    toast.success('this is a success message');
-  };
-  const handleInfo = () => {
-    toast.info('this is an info message');
-  };
-  const handleWarning = () => {
-    toast.warn('this is a warning message');
-  };
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+      const html = document.querySelector('html');
+      html?.setAttribute('data-theme', savedTheme);
+    }
+  }, []);
 
+  useEffect(() => {}, [theme]);
   return (
-    <div>
-      <Button />
-      <Table data={tableData} headers={tableHeaders} />
-      <div
-        className="flex w-full justify-center gap-4"
-        style={{ marginTop: '10px' }}
-      >
-        <button
-          className="toast-error px-4 py-2 rounded-lg"
-          onClick={handleError}
-        >
-          Error
-        </button>
-        <button
-          className="toast-success px-4 py-2 rounded-lg"
-          onClick={handleSuccess}
-        >
-          Success
-        </button>
-        <button
-          className="toast-info px-4 py-2 rounded-lg"
-          onClick={handleInfo}
-        >
-          Info
-        </button>
-        <button
-          className="toast-warning px-4 py-2 rounded-lg"
-          onClick={handleWarning}
-        >
-          Warning
-        </button>
+    <div className="bg-bkg text-content h-screen w-screen overflow-y-scroll no-scrollbar fill-content">
+      <div className="w-full flex border-b justify-between pl-5">
+        <img src={logo} alt="logo" width="60px" />
+        <div className="flex items-center justify-center text-2xl font-medium b">
+          Playground
+        </div>
+        <div></div>
       </div>
-      <Select<iData>
-        data={data}
-        displayKey={'name'}
-        label={'Select type'}
-        labelPosition="top"
-        onSelect={(e: iData) => {
-          console.log(e);
-        }}
-      />
+      <div className="w-full flex">
+        <Sidebar />
+        <div className="p-4  flex-1 justify-center align-center place-items-center  h-full">
+          <Outlet />
+        </div>
+      </div>
+      <FloatingControls defaultTheme={theme} />
     </div>
   );
 }

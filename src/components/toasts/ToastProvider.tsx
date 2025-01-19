@@ -47,6 +47,7 @@ export const ToastProvider = ({
 
   const removeToast = (id: string) => {
     const div = getByQueryId(id);
+    const toastContainer = getByQueryId('toast-container');
     if (div) {
       switch (position) {
         case 'top-right':
@@ -67,8 +68,18 @@ export const ToastProvider = ({
       }
     }
     setTimeout(() => {
-      setToasts((prev) => prev.filter((toast) => toast.id !== id));
-    }, 505);
+      const children = toastContainer?.childNodes;
+      if (children.length > 1) {
+        (children[1] as HTMLDivElement).style.marginTop = '-75px';
+      }
+      setTimeout(() => {
+        const children = toastContainer?.childNodes;
+        if (children.length > 1) {
+          (children[1] as HTMLDivElement).style.marginTop = '0px';
+        }
+        setToasts((prev) => prev.filter((toast) => toast.id !== id));
+      }, 2000);
+    }, 450);
   };
 
   return (
