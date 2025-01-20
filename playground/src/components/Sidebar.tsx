@@ -3,6 +3,33 @@ import { NavLink } from 'react-router';
 const Sidebar = () => {
   const style =
     'w-full border-b py-2 pl-2 text-left font-medium cursor-pointer hover:bg-hover hover:text-bkg transition-all duration-500';
+
+  const handleMouseEnter = () => {
+    const submenu: HTMLDivElement | null = document.querySelector(
+      '[data-display="submenu"]',
+    );
+
+    if (!submenu) return;
+
+    submenu.classList.remove('animate-collapseSubmenu');
+    submenu.classList.remove('hidden');
+    submenu.classList.add('animate-expandSubmenu');
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      const submenu: HTMLDivElement | null = document.querySelector(
+        '[data-display="submenu"]',
+      );
+
+      if (!submenu) return;
+
+      submenu.classList.remove('animate-expandSubmenu');
+      submenu.classList.add('animate-collapseSubmenu');
+      submenu.classList.add('hidden');
+    }, 150);
+  };
+
   return (
     <div
       className="min-w-[200px] border-r min-h-screen"
@@ -12,8 +39,21 @@ const Sidebar = () => {
         Sidebar
       </div>
 
-      <div className={style}>
+      <div
+        className={`${style} flex justify-between`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <NavLink to="forms">Form Items</NavLink>
+        <div
+          data-display="submenu"
+          className="pr-2 pt-0 text-left max-h-0 opacity-0 hidden"
+        >
+          <div className="hover:underline">Select</div>
+          <div className="hover:underline">Input</div>
+          <div className="hover:underline">Checkbox</div>
+          <div className="hover:underline">Radio</div>
+        </div>
       </div>
 
       <div className={style}>
