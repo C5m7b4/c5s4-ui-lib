@@ -31,6 +31,10 @@ const Sidebar = () => {
       <div className={style}>
         <NavLink to="json">JsonTree</NavLink>
       </div>
+
+      <div className={style}>
+        <NavLink to="pivot">Pivot Table</NavLink>
+      </div>
     </div>
   );
 };

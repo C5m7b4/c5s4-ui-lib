@@ -19,10 +19,14 @@ const JsonTreeView = ({
   textColorClass,
   isDefaultExpanded = true,
 }: JsonTreeViewProps) => {
-  const renderTree = (node: NodeType, keyPath: string = '') => {
+  const renderTree = (
+    node: NodeType,
+    keyPath: string = '',
+    masterNode: boolean = false,
+  ) => {
     if (typeof node === 'object' && node !== null) {
       return (
-        <div className="ml-4 border-l pl-4">
+        <div className={` ${!masterNode ? 'ml-4 border-l pl-4' : ''} `}>
           {Object.entries(node).map(([key, value]) => (
             <TreeNode
               key={keyPath + key}
@@ -95,7 +99,7 @@ const JsonTreeView = ({
 
   return (
     <div className={`p-4 ${backgroundColorClass} ${textColorClass} rounded`}>
-      {renderTree(data)}
+      {renderTree(data, '', true)}
     </div>
   );
 };

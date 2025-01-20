@@ -13,21 +13,25 @@ import type { ToastPosition, ToastType } from './toasts';
 import CodeCell from './CodeCell';
 import type { CodeCellProps } from './CodeCell';
 import JsonTreeView from './JsonTree';
+import { PivotTable, formatCurrency, formatDate } from './pivotTable';
 
 export {
-  Select,
-  Table,
-  numberFormatter,
-  imageFormatter,
-  useToast,
-  Toast,
-  ToastContext,
-  ToastProvider,
-  ToastContainer,
-  ToastProviderProps,
-  ToastPosition,
-  ToastType,
   CodeCell,
   CodeCellProps,
+  formatCurrency,
+  formatDate,
+  imageFormatter,
   JsonTreeView,
+  numberFormatter,
+  PivotTable,
+  Select,
+  Table,
+  Toast,
+  ToastContainer,
+  ToastContext,
+  ToastPosition,
+  ToastProvider,
+  ToastProviderProps,
+  ToastType,
+  useToast,
 };

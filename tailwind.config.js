@@ -78,6 +78,22 @@ module.exports = {
           '0%': { maxHeight: '0px' },
           '100%': { maxHeight: '500px' },
         },
+        slideOutRightConfigurator: {
+          '0%': {
+            transform: 'translateX(0)',
+          },
+          '100%': {
+            transform: 'translateX(95%)',
+          },
+        },
+        slideInFromRightConfigurator: {
+          '0%': {
+            transform: 'translateX(95%)',
+          },
+          '100%': {
+            transform: 'translateX(0)',
+          },
+        },
       },
       animation: {
         appear: 'appear .3s ease-in-out forwards',
@@ -90,6 +106,10 @@ module.exports = {
         slideOutToLeft: 'slideOutToLeft 0.5s ease-in-out forwards',
         collapse: 'collapse 0.5s ease-in-out forwards',
         expand: 'expand 0.5s ease-in-out forwards',
+        slideOutRightConfigurator:
+          'slideOutRightConfigurator 0.5s ease-in-out forwards',
+        slideInFromRightConfigurator:
+          'slideInFromRightConfigurator 0.5s ease-in-out forwards',
       },
     },
   },
