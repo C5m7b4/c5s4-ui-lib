@@ -9,7 +9,6 @@ import {
   ToastContext,
   ToastProvider,
   ToastContainer,
-  ToggleSwitch,
   CodeCell,
   JsonTreeView,
 } from './components';
@@ -54,7 +53,6 @@ export {
   ToastProvider,
   ToastProviderProps,
   ToastType,
-  ToggleSwitch,
   TooltipProvider,
   TriangleRight,
   useClickOutside,

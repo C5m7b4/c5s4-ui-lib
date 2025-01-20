@@ -14,8 +14,6 @@ import CodeCell from './CodeCell';
 import type { CodeCellProps } from './CodeCell';
 import JsonTreeView from './JsonTree';
 
-import ToggleSwitch from './ToggleSwitch';
-
 export {
   Select,
   Table,
@@ -27,7 +25,6 @@ export {
   ToastProvider,
   ToastContainer,
   ToastProviderProps,
-  ToggleSwitch,
   ToastPosition,
   ToastType,
   CodeCell,

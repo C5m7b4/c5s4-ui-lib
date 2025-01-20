@@ -70,6 +70,14 @@ module.exports = {
           '10%': { transform: 'translateX(10%)' },
           '100%': { transform: 'translateX(-100%)', opacity: 0 },
         },
+        collapse: {
+          '0%': { maxHeight: '500px' },
+          '100%': { maxHeight: '0px' },
+        },
+        expand: {
+          '0%': { maxHeight: '0px' },
+          '100%': { maxHeight: '500px' },
+        },
       },
       animation: {
         appear: 'appear .3s ease-in-out forwards',
@@ -80,6 +88,8 @@ module.exports = {
         slideOutToRight: 'slideOutToRight 0.5s ease-in-out forwards',
         slideInFromLeft: 'slideInFromLeft 0.5s ease-in-out forwards',
         slideOutToLeft: 'slideOutToLeft 0.5s ease-in-out forwards',
+        collapse: 'collapse 0.5s ease-in-out forwards',
+        expand: 'expand 0.5s ease-in-out forwards',
       },
     },
   },

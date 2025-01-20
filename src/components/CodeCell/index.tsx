@@ -38,7 +38,11 @@ const CodeCell = ({
       className="group border rounded-lg w-full flex flex-col shadow-md"
     >
       <div className="flex gap-6">
-        <div className="flex justify-center items-center pt-2">
+        <div
+          query-id="trigger"
+          className="flex justify-center items-center pt-2"
+          onClick={handleCollapseClick}
+        >
           <ChevronDown
             height={20}
             width={20}
@@ -47,7 +51,6 @@ const CodeCell = ({
             className={`flex cursor-pointer pl-2  m-auto tranition-all duration-200
                 group-data-[display=collapsed]:-rotate-90
                 group-data-[display=expanded]:rotate-0`}
-            onClick={handleCollapseClick}
           />
         </div>
 
