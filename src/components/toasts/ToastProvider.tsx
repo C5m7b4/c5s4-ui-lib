@@ -68,18 +68,20 @@ export const ToastProvider = ({
       }
     }
     setTimeout(() => {
+      console.log('timeout1');
       const children = toastContainer?.childNodes;
       if (children.length > 1) {
         (children[1] as HTMLDivElement).style.marginTop = '-75px';
       }
       setTimeout(() => {
+        console.log('timeout2');
         const children = toastContainer?.childNodes;
         if (children.length > 1) {
           (children[1] as HTMLDivElement).style.marginTop = '0px';
         }
         setToasts((prev) => prev.filter((toast) => toast.id !== id));
-      }, 2000);
-    }, 450);
+      }, 5000);
+    }, 500);
   };
 
   return (

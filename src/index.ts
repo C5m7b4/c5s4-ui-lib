@@ -11,6 +11,9 @@ import {
   ToastContainer,
   CodeCell,
   JsonTreeView,
+  PivotTable,
+  formatCurrency,
+  formatDate,
 } from './components';
 import type { CodeCellProps } from './components';
 import type {
@@ -29,12 +32,16 @@ import {
 
 import { useClickOutside } from './hooks/useClickOutside';
 import { isArray, isObject, isFunction } from './utils/helpers';
+import type { Header } from './components/pivotTable/types';
 
 export {
   ChevronDown,
   CodeCell,
   CodeCellProps,
+  formatCurrency,
+  formatDate,
   GearIcon,
+  Header,
   IconProps,
   imageFormatter,
   isArray,
@@ -43,6 +50,7 @@ export {
   ITableHeader,
   JsonTreeView,
   numberFormatter,
+  PivotTable,
   Select,
   sort,
   Table,
