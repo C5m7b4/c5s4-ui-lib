@@ -44,15 +44,23 @@ const Sidebar = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <NavLink to="forms">Form Items</NavLink>
+        <div>Form Items</div>
         <div
           data-display="submenu"
           className="pr-2 pt-0 text-left max-h-0 opacity-0 hidden"
         >
-          <div className="hover:underline">Select</div>
-          <div className="hover:underline">Input</div>
-          <div className="hover:underline">Checkbox</div>
-          <div className="hover:underline">Radio</div>
+          <div className="flex flex-col">
+            <NavLink to="forms/select" className="hover:underline">
+              Select
+            </NavLink>
+            <NavLink to="forms/input" className="hover:underline">
+              Input
+            </NavLink>
+            <NavLink to="forms/checkbox" className="hover:underline">Checkbox</NavLink>
+            <NavLink to="forms/radio" className="hover:underline">
+              Radio
+            </NavLink>
+          </div>
         </div>
       </div>
 
