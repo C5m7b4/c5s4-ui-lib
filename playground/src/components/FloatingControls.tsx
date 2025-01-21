@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import { GearIcon } from '../../../src';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Select } from '../../../src';
 
 const modeData = [
@@ -27,8 +27,13 @@ interface FloatingControlsProps {
 }
 
 const FloatingControls = ({ defaultTheme }: FloatingControlsProps) => {
+  const [value, setValue] = useState<string>(defaultTheme)
   const ref = useRef<HTMLDivElement>(null);
 
+  if (localStorage.getItem('theme') !== value) {
+    setValue(localStorage.getItem('theme') as string);
+  }
+  
   useEffect(() => {}, [defaultTheme]);
 
   const handleChange = (e: { name: string; value: string }) => {
@@ -78,7 +83,7 @@ const FloatingControls = ({ defaultTheme }: FloatingControlsProps) => {
           useLabel={false}
           backgroundClass="bg-bkg"
           fillClass="fill-content"
-          value={defaultTheme}
+          value={value}
         />
       </div>
     </div>,
