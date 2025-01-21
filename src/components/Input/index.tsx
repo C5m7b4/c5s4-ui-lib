@@ -1,27 +1,33 @@
-import { useState } from 'react';
-
 export interface InputProps {
-  onClick?: (e: string) => void;
+  text: string;
+  setText: (t: string) => void;
+  setIsSearching: (t: boolean) => void;
 }
 
-const Input = ({ onClick }: InputProps) => {
-  const [text, setText] = useState<string>('');
+const Input = ({ text, setText, setIsSearching }: InputProps) => {
 
   const handleClick = () => {
-    if (onClick) {
-      onClick(text);
+    if (setIsSearching) {
+      
+      setIsSearching(true);
+    } else {
+      throw new Error('An onClick function must be passed as a prop');
     }
   };
 
   return (
-    <div className="flex w-[300px]">
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        className="px-2 py-1 rounded-l-lg shadow-md active:border-purple-500 outline-none w-full"
-      />
-      <button onClick={handleClick} className="border px-2 rounded-r-lg">Search</button>
+    <div>
+      <div className="flex justify-center">
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          className="text-black w-[300px] px-2 py-1 rounded-l-lg shadow-md active:border-purple-500 outline-none"
+        />
+        <button onClick={handleClick} className="border px-2 rounded-r-lg">
+          Search
+        </button>
+      </div>
     </div>
   );
 };
