@@ -2,7 +2,7 @@
 
 const Checkbox = () => {
   return (
-    <div>
+    <div query-id='checkbox-container'>
       This will be a Checkbox demo
     </div>
   );
