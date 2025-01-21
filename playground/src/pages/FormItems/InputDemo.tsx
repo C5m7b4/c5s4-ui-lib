@@ -24,7 +24,6 @@ const InputDemo = () => {
   const displayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log('howdy')
     if (isSearching) {
       if (displayRef.current) {
         displayRef.current.setAttribute('data-display', 'active-search');
