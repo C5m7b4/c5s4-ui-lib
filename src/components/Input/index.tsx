@@ -5,16 +5,6 @@ export interface InputProps {
 }
 
 const Input = ({ text, setText, setIsSearching }: InputProps) => {
-
-  const handleClick = () => {
-    if (setIsSearching) {
-      
-      setIsSearching(true);
-    } else {
-      throw new Error('An onClick function must be passed as a prop');
-    }
-  };
-
   return (
     <div>
       <div className="flex justify-center">
@@ -24,7 +14,7 @@ const Input = ({ text, setText, setIsSearching }: InputProps) => {
           onChange={(e) => setText(e.target.value)}
           className="text-black w-[300px] px-2 py-1 rounded-l-lg shadow-md active:border-purple-500 outline-none"
         />
-        <button onClick={handleClick} className="border px-2 rounded-r-lg">
+        <button onClick={() => setIsSearching(true)} className="border px-2 rounded-r-lg">
           Search
         </button>
       </div>
