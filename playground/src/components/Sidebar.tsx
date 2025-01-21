@@ -1,34 +1,14 @@
+import { useRef, useState } from 'react';
 import { NavLink } from 'react-router';
 
 const Sidebar = () => {
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const style =
     'w-full border-b py-2 pl-2 text-left font-medium cursor-pointer hover:bg-hover hover:text-bkg transition-all duration-500';
 
-  const handleMouseEnter = () => {
-    const submenu: HTMLDivElement | null = document.querySelector(
-      '[data-display="submenu"]',
-    );
-
-    if (!submenu) return;
-
-    submenu.classList.remove('animate-collapseSubmenu');
-    submenu.classList.remove('hidden');
-    submenu.classList.add('animate-expandSubmenu');
-  };
-
-  const handleMouseLeave = () => {
-    setTimeout(() => {
-      const submenu: HTMLDivElement | null = document.querySelector(
-        '[data-display="submenu"]',
-      );
-
-      if (!submenu) return;
-
-      submenu.classList.remove('animate-expandSubmenu');
-      submenu.classList.add('animate-collapseSubmenu');
-      submenu.classList.add('hidden');
-    }, 150);
-  };
+  const parentRef = useRef<HTMLDivElement>(null);
+  const handleMouseEnter = () => setIsSubmenuOpen(true);
+  const handleMouseLeave = () => setIsSubmenuOpen(false);
 
   return (
     <div
@@ -40,14 +20,18 @@ const Sidebar = () => {
       </div>
 
       <div
+        ref={parentRef}
         className={`${style} flex justify-between`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         <div>Form Items</div>
         <div
-          data-display="submenu"
-          className="pr-2 pt-0 text-left max-h-0 opacity-0 hidden"
+          className={`pr-2 pt-0 text-left transition-all duration-500 ${
+            isSubmenuOpen
+              ? 'max-h-40 opacity-100'
+              : 'max-h-0 opacity-0 overflow-hidden'
+          }`}
         >
           <div className="flex flex-col">
             <NavLink to="forms/select" className="hover:underline">
@@ -56,7 +40,9 @@ const Sidebar = () => {
             <NavLink to="forms/input" className="hover:underline">
               Input
             </NavLink>
-            <NavLink to="forms/checkbox" className="hover:underline">Checkbox</NavLink>
+            <NavLink to="forms/checkbox" className="hover:underline">
+              Checkbox
+            </NavLink>
             <NavLink to="forms/radio" className="hover:underline">
               Radio
             </NavLink>
