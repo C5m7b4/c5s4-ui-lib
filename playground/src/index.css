@@ -11,7 +11,8 @@ body {
 @layer base {
   :root {
     --color-bkg: 255 255 255;
-    --color-content: 30 41 59l --color-accent1: 245 208 254;
+    --color-content: 30 41 59;
+    --color-accent1: 245 208 254;
     --color-accent2: 153 246 227;
     --color-hover: 206 220 227;
     --color-bkg2: 245 245 245;
@@ -41,26 +42,26 @@ body {
     --color-content2: 68 68 68;
   }
   :root[data-theme='cool'] {
-    --color-bkg: 78 142 215;
+    --color-bkg: 43 160 255;
     --color-content: 230 230 230;
     --color-accent1: 209 116 232;
     --color-accent2: 153 246 227;
     /* --color-hover: 206 220 227; */
     /* --color-bkg2: 245 245 245; */
-    --color-bkg2: 43 160 255;
+    --color-bkg2: 48 50 190;
     --color-stripeEven: 179 220 229;
     --color-stripeOdd: 255 255 245;
     --color-hover: 230 245 255;
     --color-content2: 30 41 59;
   }
   :root[data-theme='purple'] {
-    --color-bkg: 150 25 235;
+    --color-bkg: 130 100 255; 
     --color-content: 255 255 255;
     --color-accent1: 209 116 232;
     --color-accent2: 153 246 227;
     /* --color-hover: 206 220 227;
     --color-bkg2: 245 245 245; */
-    --color-bkg2: 130 100 255;
+    --color-bkg2: 110 65 235;
     --color-stripeEven: 190 111 180;
     --color-stripeOdd: 190 160 250;
     --color-hover: 150 145 250;
