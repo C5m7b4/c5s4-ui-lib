@@ -21,6 +21,7 @@ export interface ITable<T> {
   striped?: boolean;
   stripeEvenClass?: string;
   stripeOddClass?: string;
+  textColorClass2?: string
 }
 
 const Table = <T,>({
@@ -38,6 +39,7 @@ const Table = <T,>({
   striped,
   stripeEvenClass,
   stripeOddClass,
+  textColorClass2,
 }: ITable<T>) => {
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [tableData, setTableData] = useState(data);
@@ -83,7 +85,7 @@ const Table = <T,>({
 
   return (
     <div>
-      <table query-id="table">
+      <table query-id="table" className="w-full">
         <THead
           headers={tableHeaders}
           backgroundColorClass={backgroundColorClass}
@@ -94,6 +96,7 @@ const Table = <T,>({
           setSortDirection={setSortDirection}
           sortDirection={sortDirection}
           setSelectedColumn={setSelectedColumn}
+          textColorClass2={textColorClass2}
         />
         <TBody
           data={tableData}
@@ -102,6 +105,7 @@ const Table = <T,>({
           striped={striped}
           stripeEvenClass={stripeEvenClass}
           stripeOddClass={stripeOddClass}
+          textColorClass2={textColorClass2}
         />
         <Footer
           data={data}

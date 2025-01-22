@@ -42,13 +42,13 @@ const Footer = <T,>({
   }, [selectedColumn, data]);
 
   return (
-    <tfoot query-id="tfoot">
-      <tr>
+    <tfoot query-id="tfoot" className="w-full">
+      <tr className="rounded-b-lg">
         {selectedColumn != null ? (
           <td colSpan={9}>
             <div
               className={`flex gap-4 pl-2 ${footerBackgroundClass}
-             ${footerTextColorClass} rounded-b-lg`}
+             ${footerTextColorClass} border rounded-b-lg border-t-transparent`}
               style={{
                 backgroundColor: footerBackgroundColorStyle
                   ? footerBackgroundColorStyle
@@ -68,7 +68,7 @@ const Footer = <T,>({
           <td
             colSpan={9}
             className={`flex gap-4 pl-2 ${footerBackgroundClass}
-          ${footerTextColorClass} rounded-b-lg`}
+          ${footerTextColorClass} border border-t-transparent rounded-b-lg`}
             style={{
               backgroundColor: footerBackgroundColorStyle
                 ? footerBackgroundColorStyle

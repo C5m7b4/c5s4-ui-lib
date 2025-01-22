@@ -20,8 +20,13 @@ export default {
         },
         bkg: 'rgb(var(--color-bkg) / <alpha-value>)',
         bkg2: 'rgb(var(--color-bkg2) / <alpha-value>)',
+        bkg3: 'rgb(var(--color-bkg3) / <alpha-value>)',
         content: 'rgb(var(--color-content) / <alpha-value>)',
+        stripeEven: 'rgb(var(--color-stripeEven) / <alpha-value>)',
+        stripeOdd: 'rgb(var(--color-stripeOdd) / <alpha-value>)',
         hover: 'rgb(var(--color-hover) / <alpha-value>)',
+        hover2: 'rgb(var(--color-hover2) / <alpha-value>)',
+        content2: 'rgb(var(--color-content2) / <alpha-value>)',
       },
       keyframes: {
         slideInFromRightModal: {
@@ -63,7 +68,8 @@ export default {
         },
       },
       animation: {
-        slideInFromRightModal: 'slideInFromRightModal 0.5s ease-in-out forwards',
+        slideInFromRightModal:
+          'slideInFromRightModal 0.5s ease-in-out forwards',
         slideOutToRightModal: 'slideOutToRightModal 0.5s ease-in-out forwards',
         collapse: 'collapse 0.5s ease-in-out forwards',
         expand: 'expand 0.5s ease-in-out forwards',
