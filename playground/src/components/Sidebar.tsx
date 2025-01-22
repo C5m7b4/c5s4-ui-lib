@@ -7,6 +7,7 @@ const Sidebar = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [children, setChildren] = useState<string[] | null>(null);
   const [menuItem, setMenuItem] = useState<string>('');
+  const [disabled, setDisabled] = useState<boolean>(true);
 
   useEffect(() => {
     if (children) setShowSideBarModal(true);
@@ -31,11 +32,13 @@ const Sidebar = () => {
     switch (index) {
       case 0:
         setMenuItem('forms');
+        setDisabled(false);
         setChildren(['Select', 'Input', 'Checkbox', 'Radio']);
         break;
       default:
-        setChildren(null);
+        setDisabled(true);
         setMenuItem('');
+        setChildren(null);
     }
   };
 
@@ -77,6 +80,7 @@ const Sidebar = () => {
         position={position}
         children={children}
         menuItem={menuItem}
+        disabled={disabled}
       />
     </div>
   );

@@ -10,6 +10,7 @@ interface SidebarModalProps {
   position: { x: number; y: number };
   children: children;
   menuItem: string;
+  disabled: boolean;
 }
 
 const SidebarModal = ({
@@ -18,6 +19,7 @@ const SidebarModal = ({
   position,
   children,
   menuItem,
+  disabled
 }: SidebarModalProps) => {
   const ref = useClickOutside<HTMLDivElement>(() => {
     if (!ref.current) return;
@@ -28,7 +30,7 @@ const SidebarModal = ({
     }, 500);
   });
 
-  return open && children?.length
+  return open && !disabled
     ? createPortal(
         <div className="fixed top-0 left-0 w-full h-full z-10">
           <div
