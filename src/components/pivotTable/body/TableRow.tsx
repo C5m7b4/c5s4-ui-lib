@@ -3,7 +3,7 @@ import { Box } from '../utils/Box';
 import { unique } from '../utils/unique';
 import { ValueType, Row, Column } from '../types';
 import { PlusSquare, MinusSquare } from '../Icons';
-import { sort } from '../../../utils/sort';
+import { sort } from '../utils/sort';
 import { getColumnCount } from '../utils/arrayUtils';
 
 export interface TableRowProps<T> {
@@ -178,7 +178,10 @@ const TableRow = <T,>({
               {Object.keys(sr as T[]).map((k, index) => {
                 if (k === rows[i + 1]?.label) {
                   return (
-                    <div key={`sr-r-${idx}-${index}`} className="pl-6">
+                    <div
+                      key={`sr-r-${idx}-${index}`}
+                      className="pl-6 text-left"
+                    >
                       {`${sr[k as keyof T]}`}
                     </div>
                   );

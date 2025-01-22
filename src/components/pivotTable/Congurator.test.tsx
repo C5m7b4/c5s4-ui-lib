@@ -1,4 +1,4 @@
-import { render, act } from '@testing-library/react';
+import { render, act, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import PivotTable from './PivotTable';
 import { data } from '../../../playground/src/data/pivotData';
@@ -13,13 +13,13 @@ describe('Configurator', () => {
         <PivotTable
           data={data}
           headers={headers}
-          usePivot={false}
-          demoMode={true}
+          usePivot={true}
+          demoMode={false}
         />,
       );
-
-      const expander = getByQueryId('expander');
-      await userEvent.click(expander);
     });
+
+    const expander = getByQueryId('expander');
+    await userEvent.click(expander);
   });
 });

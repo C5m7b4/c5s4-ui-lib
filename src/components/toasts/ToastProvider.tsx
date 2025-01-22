@@ -45,6 +45,14 @@ export const ToastProvider = ({
     }
   };
 
+  const getVisibleItems = (parent: HTMLDivElement) => {
+    const children = Array.from(parent.children) as HTMLDivElement[];
+    return children.filter((child) => {
+      const style = window.getComputedStyle(child);
+      return style.opacity === '1';
+    });
+  };
+
   const removeToast = (id: string) => {
     const div = getByQueryId(id);
     const toastContainer = getByQueryId('toast-container');
@@ -68,20 +76,14 @@ export const ToastProvider = ({
       }
     }
     setTimeout(() => {
-      console.log('timeout1');
-      const children = toastContainer?.childNodes;
-      if (children.length > 1) {
-        (children[1] as HTMLDivElement).style.marginTop = '-75px';
+      const children = getVisibleItems(toastContainer);
+      if (children.length > 0) {
+        children[0].style.marginTop = '-75px';
       }
       setTimeout(() => {
-        console.log('timeout2');
-        const children = toastContainer?.childNodes;
-        if (children.length > 1) {
-          (children[1] as HTMLDivElement).style.marginTop = '0px';
-        }
         setToasts((prev) => prev.filter((toast) => toast.id !== id));
       }, 5000);
-    }, 500);
+    }, 450);
   };
 
   return (

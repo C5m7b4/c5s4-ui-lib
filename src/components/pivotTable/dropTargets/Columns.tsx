@@ -82,19 +82,10 @@ const Columns = <T,>({ columns, setColumns }: ColumnProps<T>) => {
       const configurator = document.querySelector('[query-id="configurator"]');
       const configBox = configurator?.getBoundingClientRect();
 
-      // ref.current.style.top = `${e.clientY}px`;
-      ref.current.style.bottom = `${rect.top - configBox!.top - 50}px`;
+      ref.current.style.top = `${rect.top - configBox!.top - 240}px`;
       ref.current.style.left = `${rect.left - configBox!.left}px`;
 
-      // ref.current.style.position = 'absolute';
       ref.current.setAttribute('data-display', 'open');
-      // ref.current.onclick = () => {
-      //   if (ref.current) {
-      //     const copy = columns.filter((r) => r.label != column.label);
-      //     ref.current.setAttribute('data-display', 'closed');
-      //     setColumns(copy);
-      //   }
-      // };
     }
   };
 
