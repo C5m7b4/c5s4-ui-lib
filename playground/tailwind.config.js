@@ -41,13 +41,34 @@ export default {
           '0%': { maxHeight: '0px' },
           '100%': { maxHeight: '500px' },
         },
+        expandSubmenu: {
+          '0%': {
+            maxHeight: '0px',
+            opacity: 0,
+          },
+          '100%': {
+            maxHeight: '250px',
+            opacity: 1,
+          },
+        },
+        collapseSubmenu: {
+          '100%': {
+            maxHeight: '250px',
+            opacity: 1,
+          },
+          '0%': {
+            maxHeight: '0px',
+            opacity: 0,
+          },
+        },
       },
       animation: {
-        slideInFromRightModal:
-          'slideInFromRightModal 0.5s ease-in-out forwards',
+        slideInFromRightModal: 'slideInFromRightModal 0.5s ease-in-out forwards',
         slideOutToRightModal: 'slideOutToRightModal 0.5s ease-in-out forwards',
         collapse: 'collapse 0.5s ease-in-out forwards',
         expand: 'expand 0.5s ease-in-out forwards',
+        expandSubmenu: 'expandSubmenu 0.5s ease-in-out forwards',
+        collapseSubmenu: 'collapseSubmenu 0.3s ease-in-out forwards',
       },
     },
   },

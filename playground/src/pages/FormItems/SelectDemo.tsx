@@ -1,11 +1,9 @@
-import { data, iData } from '../data';
-import { Select } from '../../../src';
+import { data, iData } from '../../data';
+import { Select } from '../../../../src';
 
-const FormItemsDemo = () => {
+const SelectDemo = () => {
   return (
     <div>
-      <div>Form Items Demo</div>
-
       <Select<iData>
         data={data}
         displayKey={'name'}
@@ -19,4 +17,4 @@ const FormItemsDemo = () => {
   );
 };
 
-export default FormItemsDemo;
+export default SelectDemo;
