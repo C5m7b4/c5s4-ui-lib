@@ -17,6 +17,7 @@ import { PivotTable, formatCurrency, formatDate } from './pivotTable';
 import Input from './Input';
 import Radio from './Radio';
 import Checkbox from './Checkbox';
+import SplitContainer from './SplitContainer';
 
 export {
   CodeCell,
@@ -39,5 +40,6 @@ export {
   useToast,
   Input,
   Radio,
-  Checkbox
+  Checkbox,
+  SplitContainer,
 };

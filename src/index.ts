@@ -16,7 +16,8 @@ import {
   formatDate,
   Input,
   Radio,
-  Checkbox
+  Checkbox,
+  SplitContainer,
 } from './components';
 import type { CodeCellProps } from './components';
 import type {
@@ -71,5 +72,6 @@ export {
   useTooltip,
   Input,
   Radio,
-  Checkbox
+  Checkbox,
+  SplitContainer,
 };
