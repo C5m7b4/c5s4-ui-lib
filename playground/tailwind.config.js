@@ -20,8 +20,13 @@ export default {
         },
         bkg: 'rgb(var(--color-bkg) / <alpha-value>)',
         bkg2: 'rgb(var(--color-bkg2) / <alpha-value>)',
+        bkg3: 'rgb(var(--color-bkg3) / <alpha-value>)',
         content: 'rgb(var(--color-content) / <alpha-value>)',
+        stripeEven: 'rgb(var(--color-stripeEven) / <alpha-value>)',
+        stripeOdd: 'rgb(var(--color-stripeOdd) / <alpha-value>)',
         hover: 'rgb(var(--color-hover) / <alpha-value>)',
+        hover2: 'rgb(var(--color-hover2) / <alpha-value>)',
+        content2: 'rgb(var(--color-content2) / <alpha-value>)',
       },
       keyframes: {
         slideInFromRightModal: {
@@ -41,34 +46,25 @@ export default {
           '0%': { maxHeight: '0px' },
           '100%': { maxHeight: '500px' },
         },
-        expandSubmenu: {
-          '0%': {
-            maxHeight: '0px',
-            opacity: 0,
-          },
-          '100%': {
-            maxHeight: '250px',
-            opacity: 1,
-          },
+        slideSubmenuInFromLeft: {
+          '0%': { transform: 'translateX(-100%)', opacity: 0 },
+          '90%': { transform: 'translateX(10%)' },
+          '100%': { transform: 'translateX(0)', opacity: 1 },
         },
-        collapseSubmenu: {
-          '100%': {
-            maxHeight: '250px',
-            opacity: 1,
-          },
-          '0%': {
-            maxHeight: '0px',
-            opacity: 0,
-          },
+        slideSubmenuOutToLeft: {
+          '0%': { transform: 'translateX(0)', opacity: 1 },
+          '10%': { transform: 'translateX(10%)' },
+          '100%': { transform: 'translateX(-100%)', opacity: 0 },
         },
       },
       animation: {
-        slideInFromRightModal: 'slideInFromRightModal 0.5s ease-in-out forwards',
+        slideInFromRightModal:
+          'slideInFromRightModal 0.5s ease-in-out forwards',
         slideOutToRightModal: 'slideOutToRightModal 0.5s ease-in-out forwards',
         collapse: 'collapse 0.5s ease-in-out forwards',
         expand: 'expand 0.5s ease-in-out forwards',
-        expandSubmenu: 'expandSubmenu 0.5s ease-in-out forwards',
-        collapseSubmenu: 'collapseSubmenu 0.3s ease-in-out forwards',
+        slideSubmenuInFromLeft: 'slideSubmenuInFromLeft 0.3s ease-in-out forwards',
+        slideSubmenuOutToLeft: 'slideSubmenuOutToLeft 0.3s ease-in-out forwards',
       },
     },
   },

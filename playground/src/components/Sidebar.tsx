@@ -1,74 +1,87 @@
-import { useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
+import SidebarModal from './SideBarModal';
 
 const Sidebar = () => {
-  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [showSideBarModal, setShowSideBarModal] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [children, setChildren] = useState<string[] | null>(null);
+  const [menuItem, setMenuItem] = useState<string>('');
+  const [disabled, setDisabled] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (children) setShowSideBarModal(true);
+  }, [children]);
+
   const style =
     'w-full border-b py-2 pl-2 text-left font-medium cursor-pointer hover:bg-hover hover:text-bkg transition-all duration-500';
 
-  const parentRef = useRef<HTMLDivElement>(null);
-  const handleMouseEnter = () => setIsSubmenuOpen(true);
-  const handleMouseLeave = () => setIsSubmenuOpen(false);
+  const handleMenuClick = (
+    e: React.MouseEvent<HTMLDivElement>,
+    factor: number,
+    index: number = 0,
+  ) => {
+    const left = e.currentTarget.clientWidth;
+    const top = 65 + index + e.currentTarget.clientHeight * factor;
+
+    setPosition({
+      x: left,
+      y: top,
+    });
+
+    switch (index) {
+      case 0:
+        setMenuItem('forms');
+        setDisabled(false);
+        setChildren(['Select', 'Input', 'Checkbox', 'Radio']);
+        break;
+      default:
+        setDisabled(true);
+        setMenuItem('');
+        setChildren(null);
+    }
+  };
 
   return (
     <div
       className="min-w-[200px] border-r min-h-screen"
       style={{ height: '100%' }}
     >
-      <div className="text-xl font-medium text-left border-b mb-2 px-2 py-2">
+      <div className="text-xl font-medium text-left border-b px-2 py-2">
         Sidebar
       </div>
 
-      <div
-        ref={parentRef}
-        className={`${style} flex justify-between`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      <div className={`${style}`} onClick={(e) => handleMenuClick(e, 1)}>
         <div>Form Items</div>
-        <div
-          className={`pr-2 pt-0 text-left transition-all duration-500 ${
-            isSubmenuOpen
-              ? 'max-h-40 opacity-100'
-              : 'max-h-0 opacity-0 overflow-hidden'
-          }`}
-        >
-          <div className="flex flex-col">
-            <NavLink to="forms/select" className="hover:underline">
-              Select
-            </NavLink>
-            <NavLink to="forms/input" className="hover:underline">
-              Input
-            </NavLink>
-            <NavLink to="forms/checkbox" className="hover:underline">
-              Checkbox
-            </NavLink>
-            <NavLink to="forms/radio" className="hover:underline">
-              Radio
-            </NavLink>
-          </div>
-        </div>
       </div>
 
-      <div className={style}>
+      <div className={style} onClick={(e) => handleMenuClick(e, 2, 1)}>
         <NavLink to="table">Table</NavLink>
       </div>
 
-      <div className={style}>
+      <div className={style} onClick={(e) => handleMenuClick(e, 3, 2)}>
         <NavLink to="toasts">Toasts</NavLink>
       </div>
 
-      <div className={style}>
+      <div className={style} onClick={(e) => handleMenuClick(e, 4, 3)}>
         <NavLink to="tooltips">Tooltips</NavLink>
       </div>
 
-      <div className={style}>
+      <div className={style} onClick={(e) => handleMenuClick(e, 5, 4)}>
         <NavLink to="json">JsonTree</NavLink>
       </div>
 
-      <div className={style}>
+      <div className={style} onClick={(e) => handleMenuClick(e, 6, 5)}>
         <NavLink to="pivot">Pivot Table</NavLink>
       </div>
+      <SidebarModal
+        open={showSideBarModal}
+        close={() => setShowSideBarModal(false)}
+        position={position}
+        children={children}
+        menuItem={menuItem}
+        disabled={disabled}
+      />
     </div>
   );
 };

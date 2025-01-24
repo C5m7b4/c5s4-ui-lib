@@ -16,6 +16,7 @@ export interface THeadProps {
   setSortDirection: (direction: SortDirection) => void;
   sortDirection: SortDirection;
   setSelectedColumn: (header: ITableHeader) => void;
+  textColorClass2?: string;
 }
 
 const THead = ({
@@ -28,6 +29,8 @@ const THead = ({
   setSortDirection,
   sortDirection,
   setSelectedColumn,
+  textColorClass2
+
 }: THeadProps) => {
   const handleColumnClick = (
     e: React.MouseEvent<SVGGElement>,
@@ -75,8 +78,8 @@ const THead = ({
                   onClick={(e) => handleColumnClick(e, header)}
                   height={12}
                   width={12}
-                  fill="white"
-                  stroke="white"
+                  fill={textColorClass2 || '#000'}
+                  stroke={textColorClass2 || '#000'}
                   strokeWidth={6}
                   className="cursor-pointer"
                 />

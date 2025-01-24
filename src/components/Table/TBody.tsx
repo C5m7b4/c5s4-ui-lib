@@ -8,6 +8,7 @@ export interface TBodyProps<T> {
   striped?: boolean;
   stripeEvenClass?: string;
   stripeOddClass?: string;
+  textColorClass2?: string;
 }
 
 const TBody = <T,>({
@@ -18,6 +19,7 @@ const TBody = <T,>({
   striped = true,
   stripeEvenClass = 'even:bg-slate-200',
   stripeOddClass = 'odd:bg-white',
+  textColorClass2 = 'text-black',
 }: TBodyProps<T>) => {
   const stripeStyle = striped ? `${stripeEvenClass} ${stripeOddClass}` : '';
 
@@ -47,7 +49,7 @@ const TBody = <T,>({
             {headers.map((header, idx) => {
               return header.visible ? (
                 <td
-                  className={`pl-2 text-ellipsis overflow-hidden whitespace-nowrap`}
+                  className={`pl-2 text-ellipsis overflow-hidden whitespace-nowrap ${textColorClass2}`}
                   key={`tr-td-${index}-${idx}`}
                   style={{
                     textAlign: header.align,
