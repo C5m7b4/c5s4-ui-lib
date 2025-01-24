@@ -75,6 +75,7 @@ const PivotTable = <T extends object>({
             values={values}
             setValues={setValues}
             columns={columns}
+            fillClass="fill-content"
           />
         ) : (
           <NormalTable data={data} headers={headers} />

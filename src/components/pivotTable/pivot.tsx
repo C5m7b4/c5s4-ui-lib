@@ -14,6 +14,7 @@ export interface PivotProps<T> {
   values: ValueType<T>[];
   setValues: (values: ValueType<T>[]) => void;
   columns: Column<T>[];
+  fillClass?: string;
 }
 
 const Pivot = <T,>({
@@ -23,6 +24,7 @@ const Pivot = <T,>({
   values,
   setValues,
   columns,
+  fillClass,
 }: PivotProps<T>) => {
   const [showContextMenu, setShowContextMenu] = useState(false);
   // const [showUtilityContext, setShowUtilityContext] = useState(false);
@@ -155,6 +157,7 @@ const Pivot = <T,>({
           handleAliasClick={handleAliasClick}
           handleFormatterClick={handleFormatterClick}
           columns={columns}
+          fillClass={fillClass as string}
         />
         <Tbody rows={rows} data={data} values={values} columns={columns} />
       </div>
