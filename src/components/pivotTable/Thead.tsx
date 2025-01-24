@@ -1,7 +1,7 @@
 import { Column, Row, ValueType } from './types';
 import UtilityContext from './contexts/UtilityContext';
 import { ChevronDown } from './Icons';
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import HeaderContext from './contexts/HeaderContext';
 import { getColumnCount, getUniqueColumns } from './utils/arrayUtils';
 
@@ -18,6 +18,8 @@ export interface THeadProps<T> {
   handleAliasClick: (column: string) => void;
   handleFormatterClick: (column: string) => void;
   columns: Column<T>[];
+  fillClass: string;
+  textColorClass?: string;
 }
 
 const Thead = <T,>({
@@ -31,7 +33,9 @@ const Thead = <T,>({
   setInclusions,
   handleAliasClick,
   handleFormatterClick,
+  fillClass = 'fill-content',
   columns,
+  textColorClass,
 }: THeadProps<T>) => {
   const [showUtilityContext, setShowUtilityContext] = useState(false);
   const [showHeaderContext, setShowHeaderContext] = useState(false);
@@ -129,7 +133,13 @@ const Thead = <T,>({
                 onClick={() => handleSortDirection(r)}
               >
                 <div className="flex justify-center items-center place-items-center">
-                  <ChevronDown height={10} width={10} className="mt-1" />
+                  <ChevronDown
+                    height={10}
+                    width={10}
+                    className={`mt-1 cursor-pointer ${textColorClass}`}
+                    stroke={fillClass}
+                    fill={fillClass}
+                  />
                 </div>
               </span>
             </div>

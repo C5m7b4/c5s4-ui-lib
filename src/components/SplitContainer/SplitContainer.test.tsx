@@ -2,7 +2,6 @@ import { render, fireEvent } from '@testing-library/react';
 import SplitContainer from './index';
 import { describe, it } from 'vitest';
 import { getByQueryId } from '../../mocks/query';
-import userEvent from '@testing-library/user-event';
 
 describe('SplitContainer', () => {
   it('should render horizontally', () => {
