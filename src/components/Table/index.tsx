@@ -5,6 +5,8 @@ import React, { useState, useEffect } from 'react';
 import { sort, SortDirection } from '../../utils/sort';
 import Footer from './Footer';
 import ColumnConfigModal from './modals/ColumnConfigModal';
+import { TableProvider } from './TableProvider';
+import { TablePluginType } from './types';
 
 export interface ITable<T> {
   data: T[];
@@ -21,7 +23,8 @@ export interface ITable<T> {
   striped?: boolean;
   stripeEvenClass?: string;
   stripeOddClass?: string;
-  textColorClass2?: string
+  textColorClass2?: string;
+  tablePluginType?: TablePluginType;
 }
 
 const Table = <T,>({
@@ -40,15 +43,21 @@ const Table = <T,>({
   stripeEvenClass,
   stripeOddClass,
   textColorClass2,
+  tablePluginType,
 }: ITable<T>) => {
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [tableData, setTableData] = useState(data);
-  const [tableHeaders, setTableHeaders] = useState(headers);
+  const [tableHeaders, setTableHeaders] = useState<ITableHeader[]>(headers);
   const [selectedColumn, setSelectedColumn] = useState<ITableHeader | null>(
     null,
   );
   const [showColumnConfigModal, setShowColumnConfigModal] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [editable, setEditable] = useState(false);
+  const [editableRowId, setEditableRowId] = useState<number>(-1);
+  const [editableHeader, setEditableHeader] = useState<ITableHeader | null>(
+    null,
+  );
 
   useEffect(() => {}, [tableData]);
 
@@ -85,48 +94,58 @@ const Table = <T,>({
 
   return (
     <div>
-      <table query-id="table" className="w-full">
-        <THead
+      <TableProvider>
+        <table query-id="table" className="w-full">
+          <THead
+            headers={tableHeaders}
+            backgroundColorClass={backgroundColorClass}
+            backgroundColorStyle={backgroundColorStyle}
+            textColorClass={textColorClass}
+            textColorStyle={textColorStyle}
+            onColumnClick={handleColumnClick}
+            setSortDirection={setSortDirection}
+            sortDirection={sortDirection}
+            setSelectedColumn={setSelectedColumn}
+            textColorClass2={textColorClass2}
+          />
+          <TBody
+            data={tableData}
+            setTableData={setTableData}
+            headers={tableHeaders}
+            hoverClass={hoverClass}
+            striped={striped}
+            stripeEvenClass={stripeEvenClass}
+            stripeOddClass={stripeOddClass}
+            textColorClass2={textColorClass2}
+            editable={editable}
+            setEditable={setEditable}
+            editableRowId={editableRowId}
+            setEditableRowId={setEditableRowId}
+            editableHeader={editableHeader}
+            setEditableHeader={setEditableHeader}
+            tablePluginType={tablePluginType}
+          />
+          <Footer
+            data={data}
+            selectedColumn={selectedColumn}
+            footerBackgroundClass={footerBackgroundClass}
+            footerTextColorClass={footerTextColorClass}
+            footerBackgroundColorStyle={footerBackgroundColorStyle}
+            footerTextColorStyle={footerTextColorStyle}
+          />
+        </table>
+        <ColumnConfigModal
+          open={showColumnConfigModal}
+          close={() => {
+            setShowColumnConfigModal(false);
+          }}
+          position={position}
           headers={tableHeaders}
-          backgroundColorClass={backgroundColorClass}
-          backgroundColorStyle={backgroundColorStyle}
-          textColorClass={textColorClass}
-          textColorStyle={textColorStyle}
-          onColumnClick={handleColumnClick}
+          setTableHeaders={setTableHeaders}
+          // selectedHeader={selectedColumn}
           setSortDirection={setSortDirection}
-          sortDirection={sortDirection}
-          setSelectedColumn={setSelectedColumn}
-          textColorClass2={textColorClass2}
         />
-        <TBody
-          data={tableData}
-          headers={tableHeaders}
-          hoverClass={hoverClass}
-          striped={striped}
-          stripeEvenClass={stripeEvenClass}
-          stripeOddClass={stripeOddClass}
-          textColorClass2={textColorClass2}
-        />
-        <Footer
-          data={data}
-          selectedColumn={selectedColumn}
-          footerBackgroundClass={footerBackgroundClass}
-          footerTextColorClass={footerTextColorClass}
-          footerBackgroundColorStyle={footerBackgroundColorStyle}
-          footerTextColorStyle={footerTextColorStyle}
-        />
-      </table>
-      <ColumnConfigModal
-        open={showColumnConfigModal}
-        close={() => {
-          setShowColumnConfigModal(false);
-        }}
-        position={position}
-        headers={tableHeaders}
-        setTableHeaders={setTableHeaders}
-        // selectedHeader={selectedColumn}
-        setSortDirection={setSortDirection}
-      />
+      </TableProvider>
     </div>
   );
 };

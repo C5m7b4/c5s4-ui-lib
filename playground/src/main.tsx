@@ -5,10 +5,16 @@ import App from './App.tsx';
 import { BrowserRouter, Routes, Route } from 'react-router';
 
 import ToastDemo from './pages/ToastDemo/ToastDemo.tsx';
-import TableDemo from './pages/TableDemo.tsx';
+import TableDemo from './pages/tableDemo/TableDemo';
 import JsonTreeViewDemo from './pages/JsonTreeViewDemo/index.tsx';
 import PivotTableDemo from './pages/PivotTableDemo/PivotTableDemo.tsx';
-import { FormItemsDemo, SelectDemo, InputDemo, RadioDemo, CheckboxDemo } from './pages/FormItems/index.ts';
+import {
+  FormItemsDemo,
+  SelectDemo,
+  InputDemo,
+  RadioDemo,
+  CheckboxDemo,
+} from './pages/FormItems/index.ts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -24,4 +24,6 @@ export interface ITableHeader {
   align: ITableHeaderAlign;
   formatter: FormatterType;
   dataType: IDataType;
+  editable?: boolean;
+  editor?: null;
 }
