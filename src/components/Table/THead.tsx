@@ -2,8 +2,6 @@ import { ITableHeader } from '../../types';
 import { ChevronDown } from '../../icons';
 import React, { useState, useEffect, useRef } from 'react';
 import { SortDirection } from '../../utils/sort';
-import { getByQueryId } from '../../utils';
-import { Box } from '../pivotTable/utils/Box';
 
 export interface THeadProps {
   headers: ITableHeader[];
@@ -92,7 +90,7 @@ const THead = ({
 
   const handleDragStart = (
     header: ITableHeader,
-    e: React.DragEvent<HTMLTableHeaderCellElement>,
+    e: React.DragEvent<HTMLTableSectionElement>,
   ) => {
     e.dataTransfer.setData('text/plain', header.alias);
     setDraggingColumn(header);
@@ -100,7 +98,7 @@ const THead = ({
 
   const handleDragOver = (
     header: ITableHeader,
-    e: React.DragEvent<HTMLTableHeaderCellElement>,
+    e: React.DragEvent<HTMLTableSectionElement>,
   ) => {
     if (draggingColumn?.alias === header.alias) return;
     if (!ref.current) return;
@@ -113,7 +111,7 @@ const THead = ({
     }
   };
 
-  const handleDragLeave = (e: React.DragEvent<HTMLTableHeaderCellElement>) => {
+  const handleDragLeave = (e: React.DragEvent<HTMLTableSectionElement>) => {
     e.currentTarget.classList.remove('bg-green-500');
   };
 
@@ -178,10 +176,25 @@ const THead = ({
                 <div
                   draggable
                   className="w-full cursor-pointer"
-                  onDragStart={(e) => handleDragStart(header, e)}
-                  onDragOver={(e) => handleDragOver(header, e)}
+                  onDragStart={(e) =>
+                    handleDragStart(
+                      header,
+                      e as React.DragEvent<HTMLTableSectionElement>,
+                    )
+                  }
+                  onDragOver={(e) =>
+                    handleDragOver(
+                      header,
+                      e as React.DragEvent<HTMLTableSectionElement>,
+                    )
+                  }
                   onDragLeave={handleDragLeave}
-                  onDrop={(e) => handleDrop(header, e)}
+                  onDrop={(e) =>
+                    handleDrop(
+                      header,
+                      e as React.DragEvent<HTMLTableSectionElement>,
+                    )
+                  }
                   onClick={() => {
                     setSelectedColumn(header);
                     setSortDirection(sortDirection == 'asc' ? 'desc' : 'asc');
