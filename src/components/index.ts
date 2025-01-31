@@ -19,6 +19,8 @@ import Input from './Input';
 import Radio from './Radio';
 import Checkbox from './Checkbox';
 import SplitContainer from './SplitContainer';
+import DiffEditor from './DiffEditor';
+import { useWindowSize } from './Table/hooks/useWindowSize';
 
 export {
   CodeCell,
@@ -44,4 +46,6 @@ export {
   Checkbox,
   SplitContainer,
   TablePluginType,
+  DiffEditor,
+  useWindowSize,
 };

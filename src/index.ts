@@ -18,6 +18,8 @@ import {
   Radio,
   Checkbox,
   SplitContainer,
+  DiffEditor,
+  useWindowSize,
 } from './components';
 import type { CodeCellProps } from './components';
 import type {
@@ -76,4 +78,6 @@ export {
   Checkbox,
   SplitContainer,
   TablePluginType,
+  DiffEditor,
+  useWindowSize,
 };
