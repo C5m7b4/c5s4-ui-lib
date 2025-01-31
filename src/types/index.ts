@@ -20,7 +20,7 @@ export interface ITableHeader {
   alias: string;
   visible: boolean;
   renderer: () => void;
-  width: number;
+  width: number | 'flex';
   align: ITableHeaderAlign;
   formatter: FormatterType;
   dataType: IDataType;

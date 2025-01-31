@@ -76,7 +76,7 @@ export const tableHeaders: ITableHeader[] = [
     alias: 'Name',
     visible: true,
     renderer: () => {},
-    width: 100,
+    width: 'flex',
     align: 'left',
     formatter: null,
     dataType: 'string',
