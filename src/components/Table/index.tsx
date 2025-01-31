@@ -21,7 +21,7 @@ export interface ITable<T> {
   striped?: boolean;
   stripeEvenClass?: string;
   stripeOddClass?: string;
-  textColorClass2?: string
+  textColorClass2?: string;
 }
 
 const Table = <T,>({
@@ -84,7 +84,7 @@ const Table = <T,>({
   }, [sortDirection]);
 
   return (
-    <div>
+    <div className="w-full">
       <table query-id="table" className="w-full">
         <THead
           headers={tableHeaders}
@@ -97,6 +97,7 @@ const Table = <T,>({
           sortDirection={sortDirection}
           setSelectedColumn={setSelectedColumn}
           textColorClass2={textColorClass2}
+          setTableHeaders={setTableHeaders}
         />
         <TBody
           data={tableData}

@@ -54,7 +54,6 @@ const TBody = <T,>({
                   style={{
                     textAlign: header.align,
                     width: `${header.width}px`,
-                    maxWidth: `${header.width}px`,
                   }}
                 >
                   {getFormatter(header, record)}
