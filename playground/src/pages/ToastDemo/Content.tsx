@@ -6,7 +6,7 @@ import {
   useToast,
   CodeCell,
 } from '../../../../src';
-import { highLightCode } from '../../utils/highligher';
+import { highLightCode, toastSyntaxRules } from '../../utils/highligher';
 import ToastProviderSetup from './ToastProviderSetup';
 import ToastSetup from './ToastSetup';
 
@@ -58,7 +58,7 @@ const Content = ({
     code += '>\n';
     code += '\t<App />\n';
     code += '</ToastProvider>';
-    const highlighted = highLightCode(code);
+    const highlighted = highLightCode(code, toastSyntaxRules);
     return highlighted;
   };
 
@@ -87,7 +87,7 @@ const Content = ({
     code += '\t)\n';
     code += '};';
     code += '\n\nexport default App';
-    const highlighted = highLightCode(code);
+    const highlighted = highLightCode(code, toastSyntaxRules);
     return highlighted;
   };
 

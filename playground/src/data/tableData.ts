@@ -20,6 +20,7 @@ export const tableHeaders: ITableHeader[] = [
     align: 'left',
     formatter: null,
     dataType: 'boolean',
+    editable: false,
   },
   {
     column: 'price',
@@ -30,6 +31,7 @@ export const tableHeaders: ITableHeader[] = [
     align: 'center',
     formatter: numberFormatter,
     dataType: 'number',
+    editable: true,
   },
   {
     column: 'cost',
@@ -60,6 +62,7 @@ export const tableHeaders: ITableHeader[] = [
     align: 'left',
     formatter: null,
     dataType: 'string',
+    editable: true,
   },
   {
     column: 'department',
@@ -70,6 +73,7 @@ export const tableHeaders: ITableHeader[] = [
     align: 'left',
     formatter: null,
     dataType: 'string',
+    editable: true,
   },
   {
     column: 'description',

@@ -1,4 +1,5 @@
 import Select from './Select';
+import type { TablePluginType } from './Table/types';
 import Table from './Table';
 import { numberFormatter, imageFormatter } from './Table/formatters';
 import {
@@ -42,4 +43,5 @@ export {
   Radio,
   Checkbox,
   SplitContainer,
+  TablePluginType,
 };

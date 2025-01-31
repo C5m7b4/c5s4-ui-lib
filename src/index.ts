@@ -37,6 +37,7 @@ import {
 import { useClickOutside } from './hooks/useClickOutside';
 import { isArray, isObject, isFunction } from './utils/helpers';
 import type { Header } from './components/pivotTable/types';
+import type { TablePluginType } from './components';
 
 export {
   ChevronDown,
@@ -74,4 +75,5 @@ export {
   Radio,
   Checkbox,
   SplitContainer,
+  TablePluginType,
 };
