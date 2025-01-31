@@ -22,7 +22,7 @@ const TableDemo = () => {
     return highlighted;
   };
   return (
-    <div className="p-4">
+    <div className="p-4  w-full">
       <div>Table Demos</div>
       <Table
         data={tableData}
