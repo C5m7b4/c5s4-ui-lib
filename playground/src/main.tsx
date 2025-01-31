@@ -15,6 +15,7 @@ import {
   RadioDemo,
   CheckboxDemo,
 } from './pages/FormItems/index.ts';
+import HooksDemo from './pages/hooksDemo/HooksDemo.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="table" element={<TableDemo />} />
           <Route path="json" element={<JsonTreeViewDemo />} />
           <Route path="pivot" element={<PivotTableDemo />} />
+          <Route path="hooks" element={<HooksDemo />} />
         </Route>
       </Routes>
     </BrowserRouter>

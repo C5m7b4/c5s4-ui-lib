@@ -8,6 +8,7 @@ const Sidebar = () => {
   const [children, setChildren] = useState<string[] | null>(null);
   const [menuItem, setMenuItem] = useState<string>('');
   const [disabled, setDisabled] = useState<boolean>(true);
+  const [activeMenuItem, setActiveMenuItem] = useState<number>(0);
 
   useEffect(() => {
     if (children) setShowSideBarModal(true);
@@ -21,6 +22,7 @@ const Sidebar = () => {
     factor: number,
     index: number = 0,
   ) => {
+    setActiveMenuItem(index);
     const left = e.currentTarget.clientWidth;
     const top = 65 + index + e.currentTarget.clientHeight * factor;
 
@@ -51,29 +53,55 @@ const Sidebar = () => {
         Sidebar
       </div>
 
-      <div className={`${style}`} onClick={(e) => handleMenuClick(e, 1)}>
+      <div
+        className={`${style}, ${activeMenuItem === 0 ? 'bg-hover text-content' : ''}`}
+        onClick={(e) => handleMenuClick(e, 1, 0)}
+      >
         <div>Form Items</div>
       </div>
 
-      <div className={style} onClick={(e) => handleMenuClick(e, 2, 1)}>
+      <div
+        className={`${style}, ${activeMenuItem === 1 ? 'bg-hover text-content' : ''}`}
+        onClick={(e) => handleMenuClick(e, 2, 1)}
+      >
         <NavLink to="table">Table</NavLink>
       </div>
 
-      <div className={style} onClick={(e) => handleMenuClick(e, 3, 2)}>
+      <div
+        className={`${style}, ${activeMenuItem === 2 ? 'bg-hover text-content' : ''}`}
+        onClick={(e) => handleMenuClick(e, 3, 2)}
+      >
         <NavLink to="toasts">Toasts</NavLink>
       </div>
 
-      <div className={style} onClick={(e) => handleMenuClick(e, 4, 3)}>
+      <div
+        className={`${style}, ${activeMenuItem === 3 ? 'bg-hover text-content' : ''}`}
+        onClick={(e) => handleMenuClick(e, 4, 3)}
+      >
         <NavLink to="tooltips">Tooltips</NavLink>
       </div>
 
-      <div className={style} onClick={(e) => handleMenuClick(e, 5, 4)}>
+      <div
+        className={`${style}, ${activeMenuItem === 4 ? 'bg-hover text-content' : ''}`}
+        onClick={(e) => handleMenuClick(e, 5, 4)}
+      >
         <NavLink to="json">JsonTree</NavLink>
       </div>
 
-      <div className={style} onClick={(e) => handleMenuClick(e, 6, 5)}>
+      <div
+        className={`${style}, ${activeMenuItem === 5 ? 'bg-hover text-content' : ''}`}
+        onClick={(e) => handleMenuClick(e, 6, 5)}
+      >
         <NavLink to="pivot">Pivot Table</NavLink>
       </div>
+
+      <div
+        className={`${style}, ${activeMenuItem === 6 ? 'bg-hover text-content' : ''}`}
+        onClick={(e) => handleMenuClick(e, 7, 6)}
+      >
+        <NavLink to="hooks">Hooks Demos</NavLink>
+      </div>
+
       <SidebarModal
         open={showSideBarModal}
         close={() => setShowSideBarModal(false)}
