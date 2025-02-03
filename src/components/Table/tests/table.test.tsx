@@ -1,5 +1,11 @@
-import { render, act, screen } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import {
+  render,
+  act,
+  screen,
+  fireEvent,
+  createEvent,
+} from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import {
   tableData,
   tableHeaders,
@@ -114,5 +120,103 @@ describe('Table', () => {
 
     const sortDesc = getByQueryId('sort-desc');
     await userEvent.click(sortDesc as Element);
+  });
+
+  it('should handle double click on row', async () => {
+    await act(async () => {
+      render(
+        <Table
+          data={tableData}
+          headers={tableHeaders}
+          tablePluginType="cellEditingPlugin"
+        />,
+      );
+    });
+
+    const table = getByQueryId('table');
+    const row = table.querySelector('tbody>tr:nth-child(2)');
+    const cell = row?.querySelector('td:nth-child(6)');
+    expect(cell?.innerHTML).toEqual('4741');
+
+    await userEvent.dblClick(cell as Element);
+    const input = cell?.querySelector('input');
+    expect(input).toBeInTheDocument();
+
+    await userEvent.type(input as Element, '1234{enter}');
+  });
+
+  it('should handle column resize', async () => {
+    await act(async () => {
+      render(
+        <Table
+          data={tableData}
+          headers={tableHeaders}
+          tablePluginType="cellEditingPlugin"
+        />,
+      );
+    });
+
+    const table = getByQueryId('table');
+    const thead = table.querySelector('thead>tr');
+    const cell = thead?.querySelector('th:nth-child(2)');
+    const resizer = cell?.querySelector('[query-id="resizer"]');
+
+    await fireEvent(
+      resizer as Element,
+      new MouseEvent('mousedown', {
+        bubbles: true,
+        cancelable: true,
+        clientX: 150,
+        clientY: 0,
+      }),
+    );
+    await fireEvent(
+      resizer as Element,
+      new MouseEvent('mouseup', {
+        bubbles: true,
+        cancelable: true,
+        clientX: 200,
+        clientY: 0,
+      }),
+    );
+  });
+
+  it('should handle drag', async () => {
+    await act(async () => {
+      render(
+        <Table
+          data={tableData}
+          headers={tableHeaders}
+          tablePluginType="cellEditingPlugin"
+        />,
+      );
+    });
+
+    const table = getByQueryId('table');
+    const thead = table.querySelector('thead>tr');
+    const dragElement = thead?.querySelector('th:nth-child(2)') as Element;
+    const dragOverElement = thead?.querySelector('th:nth-child(3)') as Element;
+
+    const dragStartEvent = createEvent.dragStart(dragElement);
+    const dragOverEvent = createEvent.dragOver(dragOverElement);
+    const dropEvent = createEvent.drop(dragOverElement);
+
+    Object.defineProperty(dragStartEvent, 'dataTransfer', {
+      value: {
+        setData: vi.fn(),
+      },
+    });
+    Object.defineProperty(dragOverEvent, 'dataTransfer', {
+      value: { dropEffect: 'move' },
+    });
+    Object.defineProperty(dropEvent, 'dataTransfer', {
+      value: { getData: vi.fn(() => 'active') },
+    });
+
+    await act(async () => {
+      fireEvent(dragElement, dragStartEvent);
+      fireEvent(dragOverElement, dragOverEvent);
+      fireEvent(dragOverElement, dropEvent);
+    });
   });
 });

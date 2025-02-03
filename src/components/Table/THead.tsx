@@ -52,10 +52,10 @@ const THead = ({
   };
 
   const handleResize = (header: ITableHeader, newWidth: number) => {
-    header.width = newWidth;
+    const headerCopy = { ...header, width: newWidth };
     const copy = [...headers];
-    const index = copy.findIndex((h) => h.alias === header.alias);
-    copy.splice(index, 1, header);
+    const index = copy.findIndex((h) => h.alias === headerCopy.alias);
+    copy.splice(index, 1, headerCopy);
     setTableHeaders(copy);
   };
 
@@ -213,6 +213,7 @@ const THead = ({
                   className="cursor-pointer"
                 />
                 <div
+                  query-id="resizer"
                   className="w-[10px]  cursor-col-resize"
                   onMouseDown={(e) => startResizing(header, e)}
                 ></div>

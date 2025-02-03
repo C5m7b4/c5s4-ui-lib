@@ -95,7 +95,7 @@ const Table = <T,>({
   return (
     <div>
       <TableProvider>
-        <table query-id="table">
+        <table query-id="table" className="w-full">
           <THead
             headers={tableHeaders}
             backgroundColorClass={backgroundColorClass}

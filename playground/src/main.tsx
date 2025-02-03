@@ -16,6 +16,10 @@ import {
   CheckboxDemo,
 } from './pages/FormItems/index.ts';
 import HooksDemo from './pages/hooksDemo/HooksDemo.tsx';
+import SplitContainerDemo from './pages/SplitContainerDemo/SplitContainerDemo.tsx';
+import DiffEditorDemo from './pages/DifEditorDemo/DifEditorDemo.tsx';
+import CodeEditorDemo from './pages/CodeEditorDemo/CodeEditorDemo.tsx';
+import DebuggerDemo from './pages/DebuggerDemo/DebuggerDemo.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -34,6 +38,10 @@ createRoot(document.getElementById('root')!).render(
           <Route path="json" element={<JsonTreeViewDemo />} />
           <Route path="pivot" element={<PivotTableDemo />} />
           <Route path="hooks" element={<HooksDemo />} />
+          <Route path="split" element={<SplitContainerDemo />} />
+          <Route path="diff" element={<DiffEditorDemo />} />
+          <Route path="editor" element={<CodeEditorDemo />} />
+          <Route path="debugger" element={<DebuggerDemo />} />
         </Route>
       </Routes>
     </BrowserRouter>

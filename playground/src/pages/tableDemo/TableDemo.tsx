@@ -1,6 +1,7 @@
 import { tableData, tableHeaders } from '../../data/tableData';
-import { Table, CodeCell, DiffEditor } from '../../../../src';
+import { Table, CodeCell } from '../../../../src';
 import { highLightCode, tableSyntaxRules } from '../../utils/highligher';
+import TableHeaderDemo from './TableHeaderDemo';
 
 const TableDemo = () => {
   const generateTableCode = (useRowEditor = false) => {
@@ -27,28 +28,7 @@ const TableDemo = () => {
   return (
     <div className="p-4  w-full">
       <div>Table Demos</div>
-      <Table
-        data={tableData}
-        headers={tableHeaders}
-        backgroundColorClass="bg-bkg2"
-        textColorClass="text-content"
-        footerBackgroundClass="bg-bkg2"
-        footerTextColorClass="text-content"
-        stripeEvenClass="even:bg-stripeEven"
-        stripeOddClass="odd:bg-stripeOdd"
-        hoverClass="hover:bg-hover"
-        textColorClass2="text-content2"
-        tablePluginType="cellEditingPlugin"
-      />
-      <div className="mt-4">
-        <CodeCell
-          codeGenerator={generateTableCode}
-          title="Cell Editing Plugin"
-          expandedState="expanded"
-        />
-        <DiffEditor />
-      </div>
-      <div className="mt-4">
+      <div className="grid grid-cols-2 gap-3">
         <Table
           data={tableData}
           headers={tableHeaders}
@@ -60,15 +40,19 @@ const TableDemo = () => {
           stripeOddClass="odd:bg-stripeOdd"
           hoverClass="hover:bg-hover"
           textColorClass2="text-content2"
-          tablePluginType="rowEditingPlugin"
+          tablePluginType="cellEditingPlugin"
         />
+        <div className="mt-4">
+          <CodeCell
+            codeGenerator={generateTableCode}
+            title="Cell Editing Plugin"
+            expandedState="expanded"
+          />
+        </div>
       </div>
-      <div className="mt-4">
-        <CodeCell
-          codeGenerator={() => generateTableCode(true)}
-          title="Row Editing Plugin"
-          expandedState="expanded"
-        />
+
+      <div>
+        <TableHeaderDemo />
       </div>
     </div>
   );

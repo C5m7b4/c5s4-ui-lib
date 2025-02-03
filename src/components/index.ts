@@ -21,6 +21,10 @@ import Checkbox from './Checkbox';
 import SplitContainer from './SplitContainer';
 import DiffEditor from './DiffEditor';
 import { useWindowSize } from './Table/hooks/useWindowSize';
+import CodeEditor from './CodeEditor';
+import DebuggerEnvironment from './CodeEditor/DebuggerEnvironment';
+import { DebuggerIcon } from './CodeEditor/Icons';
+import Tooltip from './tooltips/Tooltip';
 
 export {
   CodeCell,
@@ -48,4 +52,8 @@ export {
   TablePluginType,
   DiffEditor,
   useWindowSize,
+  CodeEditor,
+  DebuggerEnvironment,
+  DebuggerIcon,
+  Tooltip,
 };

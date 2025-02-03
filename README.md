@@ -10,6 +10,24 @@ This is tiny Typescript package with the following components:
 ## Components in Library
 [Select](#select)
 
+Checkbox
+
+CodeCell
+
+DiffEditor
+
+Input
+
+JsonTree
+
+PivotTable
+
+Radio
+
+SplitContainer
+
+Icons
+
 [Table](#table)
 
 [Toasts](#toasts)

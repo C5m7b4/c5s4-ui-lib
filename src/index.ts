@@ -20,6 +20,10 @@ import {
   SplitContainer,
   DiffEditor,
   useWindowSize,
+  CodeEditor,
+  DebuggerEnvironment,
+  DebuggerIcon,
+  Tooltip,
 } from './components';
 import type { CodeCellProps } from './components';
 import type {
@@ -80,4 +84,8 @@ export {
   TablePluginType,
   DiffEditor,
   useWindowSize,
+  CodeEditor,
+  DebuggerEnvironment,
+  DebuggerIcon,
+  Tooltip,
 };
