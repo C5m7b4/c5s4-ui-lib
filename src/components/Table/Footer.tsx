@@ -76,7 +76,7 @@ const Footer = <T,>({
               color: footerTextColorStyle ? footerTextColorStyle : '',
             }}
           >
-            <div>&nbsp;</div>
+            <div>Total Records: {data.length}</div>
           </td>
         )}
       </tr>

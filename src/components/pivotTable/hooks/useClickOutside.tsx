@@ -17,10 +17,12 @@ export const useClickOutside = <T extends HTMLElement>(
       handler(event);
     };
 
+    // create the event listeners
     document.addEventListener('mousedown', listener);
     document.addEventListener('touchstart', listener);
 
     return () => {
+      // cleanup the event listeners
       document.removeEventListener('mousedown', listener);
       document.removeEventListener('touchstart', listener);
     };

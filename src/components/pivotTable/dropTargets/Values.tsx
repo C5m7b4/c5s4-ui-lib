@@ -6,6 +6,7 @@ import {
   arrSum,
 } from '../utils/arrayUtils';
 import type { Aggregator } from '../types';
+import React from 'react';
 
 export interface ValuesProps<T> {
   values: ValueType<T>[];
@@ -72,6 +73,7 @@ const Values = <T,>({ values, setValues }: ValuesProps<T>) => {
       <div
         className="border rounded-md shadow-md p-2 min-h-[150px] max-h-[200px] overflow-y-auto"
         query-id="filter-values"
+        data-testid="filter-values"
         onDragOver={handleDragOver}
         onDrop={handleDrop}
         onDragLeave={handleDragLeave}

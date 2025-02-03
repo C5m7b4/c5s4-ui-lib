@@ -18,6 +18,12 @@ import {
   Radio,
   Checkbox,
   SplitContainer,
+  DiffEditor,
+  useWindowSize,
+  CodeEditor,
+  DebuggerEnvironment,
+  DebuggerIcon,
+  Tooltip,
 } from './components';
 import type { CodeCellProps } from './components';
 import type {
@@ -76,4 +82,10 @@ export {
   Checkbox,
   SplitContainer,
   TablePluginType,
+  DiffEditor,
+  useWindowSize,
+  CodeEditor,
+  DebuggerEnvironment,
+  DebuggerIcon,
+  Tooltip,
 };

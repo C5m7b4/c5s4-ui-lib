@@ -29,7 +29,7 @@ export const toastSyntaxRules: RegexRules[] = [
 
 export const tableSyntaxRules: RegexRules[] = [
   {
-    regex: /\b(import|from)\b/g,
+    regex: /\b(import|from|rowEditingPlugin|cellEditingPlugin)\b/g,
     className: 'text-[#2aaa55]',
   },
   {

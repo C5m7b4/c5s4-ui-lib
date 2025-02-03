@@ -59,7 +59,7 @@ const CodeCell = ({
       <pre
         ref={ref}
         className="code-block bg-bkg2 w-full flex-1 rounded-b-lg  font-mono text-left pl-2
-            transition-all duration-500 overflow-hidden
+            transition-all duration-500 overflow-x-hidden overfloy-y-scroll no-scrollbar
             group-data-[display=collapsed]:animate-collapse
             group-data-[display=expanded]:animate-expand"
       >
